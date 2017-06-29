@@ -6,13 +6,13 @@ package ircbot
 import (
 		"os"
 		"fmt"
-		"io/ioutil"
 		"log"
+		"io/ioutil"
 		"net/http"
 		"encoding/json"
 )
 
-func configure(url string, request *http.Request) (config map[string]interface{}) {
+func configure(request *http.Request) (config map[string]interface{}) {
 	response, err := http.DefaultClient.Do(request)
 	if err != nil {
 		log.Fatal(err)
@@ -39,7 +39,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	config := configure(url, request)
+	config := configure(request)
 	fmt.Println("map:", config)
 	fmt.Println("port:", config["port"])
 	fmt.Println("channels:", config["channels"])
