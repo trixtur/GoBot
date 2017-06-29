@@ -1,7 +1,7 @@
 /*
  * The main driver of the application. You must supply a config url as a command-line argument. The config API must return JSON.
  */
-package main
+package ircbot
 
 import (
 		"os"
@@ -37,7 +37,7 @@ func main() {
 
 	config := configure(url)
 	fmt.Println("map:", config)
-	fmt.Println("channels:", config["port"])
+	fmt.Println("port:", config["port"])
 	fmt.Println("channels:", config["channels"])
 }
 

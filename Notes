@@ -1,0 +1,2 @@
+Currently tests must be run from inside the package. You have to go to src/ircbot/ and run them with the command:
+    go test -run ''
