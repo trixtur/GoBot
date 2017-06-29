@@ -1,2 +1,4 @@
-Currently tests must be run from inside the package. You have to go to src/ircbot/ and run them with the command:
-    go test -run ''
+Unit Testing:
+	To run unit tests from the base folder of the project simply run: go test ./...
+	However, if you would like to run a specific test, change directory over to where the file exists and run: go test -run ''
+
