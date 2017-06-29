@@ -1,4 +1,4 @@
-package ircbot
+package main
 
 import (
 	"testing"
