@@ -12,8 +12,8 @@ import (
 		"encoding/json"
 )
 
-func configure(url string) (config map[string]interface{}) {
-	response, err := http.Get(url)
+func configure(url string, request *http.Request) (config map[string]interface{}) {
+	response, err := http.DefaultClient.Do(request)
 	if err != nil {
 		log.Fatal(err)
 	} else {
@@ -34,8 +34,12 @@ func configure(url string) (config map[string]interface{}) {
 
 func main() {
 	url := os.Args[1]
+	request, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	config := configure(url)
+	config := configure(url, request)
 	fmt.Println("map:", config)
 	fmt.Println("port:", config["port"])
 	fmt.Println("channels:", config["channels"])
